@@ -1,0 +1,7 @@
+{
+  "name": "CropGuard AI - Building AI Project",
+  "description": "AI-powered crop disease detection and climate-smart advisory system for smallholder farmers. Final project for University of Helsinki & Reaktor Building AI course.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
