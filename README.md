@@ -10,6 +10,8 @@ Final project for the Building AI course
 
 CropGuard AI is an accessible, offline-capable crop health diagnostic and drought-risk advisory system empowering smallholder farmers to detect crop diseases from leaf photos early and adopt climate-resilient farming techniques. (Building AI course project)
 
+![CropGuard AI Course Project Overview](leaf2.png)
+
 ## Background
 
 Agriculture forms the backbone of livelihood and food security for over 60% of Sub-Saharan Africa and arid/semi-arid regions worldwide. However, smallholder farmers lose up to 40% of their harvests annually to preventable plant pathogens, pests, and sudden climatic shifts.
@@ -113,6 +115,8 @@ CropGuard AI has substantial potential for growth and community integration:
 
 
 ## Acknowledgments
+
+![Course Acknowledgments and Maintainer](leaf3.png)
 
 * **University of Helsinki & Reaktor**: Creators of the inspiring *Elements of AI* and *Building AI* courses.
 * **PlantVillage Project (Penn State University)**: For releasing the open crop disease computer vision dataset.

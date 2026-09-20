@@ -25,6 +25,8 @@ Final project for the Building AI course
 
 CropGuard AI is an accessible, offline-capable crop health diagnostic and drought-risk advisory system empowering smallholder farmers to detect crop diseases from leaf photos early and adopt climate-resilient farming techniques. (Building AI course project)
 
+![CropGuard AI Course Project Overview](leaf2.png)
+
 ## Background
 
 Agriculture forms the backbone of livelihood and food security for over 60% of Sub-Saharan Africa and arid/semi-arid regions worldwide. However, smallholder farmers lose up to 40% of their harvests annually to preventable plant pathogens, pests, and sudden climatic shifts.
@@ -129,6 +131,8 @@ CropGuard AI has substantial potential for growth and community integration:
 
 ## Acknowledgments
 
+![Course Acknowledgments and Maintainer](leaf3.png)
+
 * **University of Helsinki & Reaktor**: Creators of the inspiring *Elements of AI* and *Building AI* courses.
 * **PlantVillage Project (Penn State University)**: For releasing the open crop disease computer vision dataset.
 * **CGIAR & FAO**: For open data publications on agricultural development and sustainable pest management.
@@ -136,7 +140,11 @@ CropGuard AI has substantial potential for growth and community integration:
 * Developer Profile & Repository Maintainer: [Abdullahi Muse Isse (@DDHDDHD3)](https://github.com/DDHDDHD3)
 `;
 
-export const CourseReadmeSubmissionModal: React.FC = () => {
+interface CourseReadmeSubmissionModalProps {
+  language?: 'en' | 'so' | 'sw';
+}
+
+export const CourseReadmeSubmissionModal: React.FC<CourseReadmeSubmissionModalProps> = ({ language = 'en' }) => {
   const [viewMode, setViewMode] = useState<'preview' | 'raw'>('preview');
   const [isCopied, setIsCopied] = useState<boolean>(false);
 
@@ -160,184 +168,218 @@ export const CourseReadmeSubmissionModal: React.FC = () => {
     <div className="space-y-6">
       
       {/* Top Banner: Building AI Final Task Submission Honors */}
-      <div className="bg-gradient-to-br from-amber-950/60 via-stone-900/60 to-emerald-950/40 rounded-2xl p-6 border border-amber-500/30 backdrop-blur-sm">
+      <div className="bg-gradient-to-br from-amber-50/90 via-white to-emerald-50/70 rounded-2xl p-6 border border-amber-300/80 shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                <Award className="w-3.5 h-3.5 text-amber-400" />
-                Building AI Final Project Honors Ready
+              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                <Award className="w-3.5 h-3.5 text-amber-700" />
+                {language === 'so' ? 'Mashruuca Koorsada Building AI ee Shahaadada' : 'Building AI Final Project Honors Ready'}
               </span>
-              <span className="text-xs text-stone-300 font-mono">University of Helsinki &bull; Reaktor</span>
+              <span className="text-xs text-slate-600 font-mono font-semibold">University of Helsinki &bull; Reaktor</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight font-['Space_Grotesk']">
-              GitHub README & Submission Guide for @DDHDDHD3
+            <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight font-['Space_Grotesk']">
+              {language === 'so' 
+                ? 'README GitHub & Tilmaamaha Gudbinta ee @DDHDDHD3' 
+                : 'GitHub README & Submission Guide for @DDHDDHD3'}
             </h1>
-            <p className="text-sm text-stone-300 max-w-3xl leading-relaxed">
-              This formatted project plan conforms strictly to the Building AI course criteria. You can copy or download this README, push it to your GitHub account (<strong className="text-emerald-300 font-mono">https://github.com/DDHDDHD3/</strong>), and submit the repository URL for course completion honors.
+            <p className="text-sm text-slate-700 max-w-3xl leading-relaxed">
+              {language === 'so'
+                ? 'Qorshahan mashruuca ee la qaabeeyey wuxuu si buuxda ugu hoggaansamayaa shuruudaha koorsada Building AI. Waad guurin kartaa ama soo dejisan kartaa README-kan, waxaad ku shubi kartaa akoonkaaga GitHub (https://github.com/DDHDDHD3/), kadibna gudbi xiriirinta si aad u hesho shahaadada.'
+                : 'This formatted project plan conforms strictly to the Building AI course criteria. You can copy or download this README, push it to your GitHub account (https://github.com/DDHDDHD3/), and submit the repository URL for course completion honors.'}
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={handleCopy}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold text-xs transition-all shadow-md cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-white font-bold text-xs transition-all shadow-xs cursor-pointer"
             >
               {isCopied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-              {isCopied ? 'Copied to Clipboard!' : 'Copy README.md'}
+              {isCopied 
+                ? (language === 'so' ? 'Waa la guuriyay!' : 'Copied to Clipboard!') 
+                : (language === 'so' ? 'Guuri README.md' : 'Copy README.md')}
             </button>
             <button
               onClick={handleDownload}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold text-xs border border-stone-700 transition-all cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs border border-slate-300 transition-all cursor-pointer shadow-2xs"
             >
               <Download className="w-4 h-4" />
-              Download File
+              {language === 'so' ? 'Soo Degso Faylka' : 'Download File'}
             </button>
             <a
               href="https://github.com/new"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-xs transition-all cursor-pointer"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-xs transition-all cursor-pointer shadow-2xs"
             >
               <Github className="w-4 h-4" />
-              <span>Create Repo on GitHub</span>
+              <span>{language === 'so' ? 'Ka Fur Repo Cusub GitHub' : 'Create Repo on GitHub'}</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           </div>
         </div>
 
         {/* Course Grading Requirements Validation Checklist */}
-        <div className="mt-5 pt-4 border-t border-stone-800/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
-          <div className="p-2.5 rounded-xl bg-stone-950/60 border border-emerald-900/40 flex items-center gap-2 text-stone-200">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>Heading <strong>## Summary</strong> included</span>
+        <div className="mt-5 pt-4 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
+          <div className="p-2.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 text-slate-700 shadow-2xs">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>{language === 'so' ? 'Cinwaanka ## Summary wuu ku jiraa' : 'Heading ## Summary included'}</span>
           </div>
-          <div className="p-2.5 rounded-xl bg-stone-950/60 border border-emerald-900/40 flex items-center gap-2 text-stone-200">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>~250 character summary text</span>
+          <div className="p-2.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 text-slate-700 shadow-2xs">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>{language === 'so' ? 'Qoraalka kooban ~250 xaraf' : '~250 character summary text'}</span>
           </div>
-          <div className="p-2.5 rounded-xl bg-stone-950/60 border border-emerald-900/40 flex items-center gap-2 text-stone-200">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>Includes <strong>"Building AI course project"</strong></span>
+          <div className="p-2.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 text-slate-700 shadow-2xs">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>{language === 'so' ? 'Wuxuu wataa "Building AI course project"' : 'Includes "Building AI course project"'}</span>
           </div>
-          <div className="p-2.5 rounded-xl bg-stone-950/60 border border-emerald-900/40 flex items-center gap-2 text-stone-200">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>Standard Course Markdown Structure</span>
+          <div className="p-2.5 rounded-xl bg-white border border-slate-200 flex items-center gap-2 text-slate-700 shadow-2xs">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>{language === 'so' ? 'Qaabka saxda ah ee Koorsada' : 'Standard Course Markdown Structure'}</span>
           </div>
         </div>
       </div>
 
       {/* Step-by-Step Submission Guide for Abdullahi Muse Isse (@DDHDDHD3) */}
-      <div className="bg-stone-900/50 rounded-2xl p-5 sm:p-6 border border-stone-800 space-y-4">
-        <h2 className="text-base font-bold text-white flex items-center gap-2">
-          <Info className="w-4 h-4 text-emerald-400" />
-          Step-by-Step Guide: How to Submit & Receive Course Honors
+      <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+        <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
+          <Info className="w-4 h-4 text-emerald-600" />
+          {language === 'so' 
+            ? 'Talaabooyinka Gudbinta: Sida Loo Gudbiyo & Loo Helo Shahaadada' 
+            : 'Step-by-Step Guide: How to Submit & Receive Course Honors'}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-          <div className="p-4 rounded-xl bg-stone-950/70 border border-stone-800 space-y-2">
-            <span className="w-6 h-6 rounded-full bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-bold">
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-bold text-xs">
               1
             </span>
-            <h3 className="font-bold text-white text-sm">Create GitHub Repo</h3>
-            <p className="text-stone-300 leading-relaxed">
-              Go to <a href="https://github.com/new" target="_blank" rel="noopener noreferrer" className="text-emerald-400 underline font-mono">github.com/new</a> with your account <strong className="text-white">DDHDDHD3</strong>. Name the repo <code className="text-amber-300 bg-stone-900 px-1 py-0.5 rounded">cropguard-ai</code>, set it to <strong>Public</strong>, and check <em>"Initialize with a README"</em>.
+            <h3 className="font-bold text-slate-900 text-sm">
+              {language === 'so' ? 'Abuur Repo GitHub ah' : 'Create GitHub Repo'}
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              {language === 'so' ? (
+                <>Gal <a href="https://github.com/new" target="_blank" rel="noopener noreferrer" className="text-emerald-700 underline font-mono font-medium">github.com/new</a> adoo isticmaalaya akoonkaaga <strong className="text-slate-900">DDHDDHD3</strong>. U bixi repo-ga <code className="text-amber-900 bg-amber-50 border border-amber-200 px-1 py-0.5 rounded font-mono">cropguard-ai</code>, ka dhig <strong>Public</strong>, oo calaamadee <em>"Initialize with a README"</em>.</>
+              ) : (
+                <>Go to <a href="https://github.com/new" target="_blank" rel="noopener noreferrer" className="text-emerald-700 underline font-mono font-medium">github.com/new</a> with your account <strong className="text-slate-900">DDHDDHD3</strong>. Name the repo <code className="text-amber-900 bg-amber-50 border border-amber-200 px-1 py-0.5 rounded font-mono">cropguard-ai</code>, set it to <strong>Public</strong>, and check <em>"Initialize with a README"</em>.</>
+              )}
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-stone-950/70 border border-stone-800 space-y-2">
-            <span className="w-6 h-6 rounded-full bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-bold">
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-bold text-xs">
               2
             </span>
-            <h3 className="font-bold text-white text-sm">Paste & Commit README</h3>
-            <p className="text-stone-300 leading-relaxed">
-              Click the pencil icon to edit <code className="text-amber-300 bg-stone-900 px-1 py-0.5 rounded">README.md</code> in your repo. Click <strong>Copy README.md</strong> above, paste the content into the editor, and click <strong>"Commit changes"</strong>.
+            <h3 className="font-bold text-slate-900 text-sm">
+              {language === 'so' ? 'Dhig & Badbaadi README' : 'Paste & Commit README'}
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              {language === 'so' ? (
+                <>Guji calaamadda qalinkaa si aad wax uga beddesho <code className="text-amber-900 bg-amber-50 border border-amber-200 px-1 py-0.5 rounded font-mono">README.md</code> ee repo-gaaga. Guji <strong>Guuri README.md</strong> kor ku xusan, ku dheji qoraalka, kadibna riix <strong>"Commit changes"</strong>.</>
+              ) : (
+                <>Click the pencil icon to edit <code className="text-amber-900 bg-amber-50 border border-amber-200 px-1 py-0.5 rounded font-mono">README.md</code> in your repo. Click <strong>Copy README.md</strong> above, paste the content into the editor, and click <strong>"Commit changes"</strong>.</>
+              )}
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-stone-950/70 border border-stone-800 space-y-2">
-            <span className="w-6 h-6 rounded-full bg-emerald-600/30 text-emerald-400 border border-emerald-500/40 flex items-center justify-center font-bold">
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+            <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-bold text-xs">
               3
             </span>
-            <h3 className="font-bold text-white text-sm">Submit URL & Peer Review</h3>
-            <p className="text-stone-300 leading-relaxed">
-              Copy your repository link <code className="text-emerald-300 bg-stone-900 px-1 py-0.5 rounded">https://github.com/DDHDDHD3/cropguard-ai</code> into the course submission form. Complete 3 peer reviews to finalize your certificate!
+            <h3 className="font-bold text-slate-900 text-sm">
+              {language === 'so' ? 'Gudbi Xiriirinta & Qiimee 3 Kale' : 'Submit URL & Peer Review'}
+            </h3>
+            <p className="text-slate-600 leading-relaxed">
+              {language === 'so' ? (
+                <>Koobbiyeeso xiriirinta repo-gaaga <code className="text-emerald-800 bg-emerald-50 border border-emerald-200 px-1 py-0.5 rounded font-mono">https://github.com/DDHDDHD3/cropguard-ai</code> oo geli foomka gudbinta koorsada. Samee 3 dib-u-eegis oo arday kale ah si aad u dhammaystirto shahaadada!</>
+              ) : (
+                <>Copy your repository link <code className="text-emerald-800 bg-emerald-50 border border-emerald-200 px-1 py-0.5 rounded font-mono">https://github.com/DDHDDHD3/cropguard-ai</code> into the course submission form. Complete 3 peer reviews to finalize your certificate!</>
+              )}
             </p>
           </div>
         </div>
       </div>
 
       {/* README Viewer Tabs */}
-      <div className="bg-stone-900/60 rounded-2xl border border-stone-800 overflow-hidden">
-        <div className="flex items-center justify-between p-3 sm:px-6 bg-stone-950 border-b border-stone-800">
+      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div className="flex items-center justify-between p-3 sm:px-6 bg-slate-50 border-b border-slate-200">
           <div className="flex items-center gap-2">
             <button
               onClick={() => setViewMode('preview')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
                 viewMode === 'preview'
-                  ? 'bg-emerald-600 text-white'
-                  : 'text-stone-400 hover:text-white'
+                  ? 'bg-emerald-600 text-white shadow-2xs'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <BookOpen className="w-3.5 h-3.5" />
-              Rendered Preview
+              {language === 'so' ? 'Muuqaalka Qoraalka' : 'Rendered Preview'}
             </button>
             <button
               onClick={() => setViewMode('raw')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
                 viewMode === 'raw'
-                  ? 'bg-emerald-600 text-white'
-                  : 'text-stone-400 hover:text-white'
+                  ? 'bg-emerald-600 text-white shadow-2xs'
+                  : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <Code2 className="w-3.5 h-3.5" />
-              Raw Markdown
+              {language === 'so' ? 'Koodhka Markdown' : 'Raw Markdown'}
             </button>
           </div>
 
           <button
             onClick={handleCopy}
-            className="flex items-center gap-1.5 text-xs text-stone-300 hover:text-white bg-stone-800 hover:bg-stone-700 px-3 py-1 rounded-lg transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 text-xs text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-100 border border-slate-300 px-3 py-1 rounded-lg transition-colors cursor-pointer shadow-2xs font-medium"
           >
-            {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{isCopied ? 'Copied' : 'Copy'}</span>
+            {isCopied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+            <span>{isCopied ? (language === 'so' ? 'Waa la guuriyay' : 'Copied') : (language === 'so' ? 'Guuri' : 'Copy')}</span>
           </button>
         </div>
 
         {/* Content Viewer */}
         {viewMode === 'raw' ? (
-          <div className="p-4 sm:p-6 bg-stone-950/90 overflow-x-auto font-mono text-xs text-emerald-300/90 leading-relaxed whitespace-pre-wrap max-h-[600px] overflow-y-auto">
+          <div className="p-4 sm:p-6 bg-slate-900 overflow-x-auto font-mono text-xs text-emerald-300 leading-relaxed whitespace-pre-wrap max-h-[600px] overflow-y-auto">
             {RAW_README_CONTENT}
           </div>
         ) : (
-          <div className="p-6 sm:p-8 bg-stone-950/50 space-y-6 text-stone-200 text-sm max-h-[600px] overflow-y-auto leading-relaxed font-sans">
+          <div className="p-6 sm:p-8 bg-white space-y-6 text-slate-700 text-sm max-h-[600px] overflow-y-auto leading-relaxed font-sans">
             
-            <div className="border-b border-stone-800 pb-4">
-              <h1 className="text-2xl sm:text-3xl font-bold text-white font-['Space_Grotesk']">
+            <div className="border-b border-slate-200 pb-4">
+              <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 font-['Space_Grotesk']">
                 CropGuard AI: Early Plant Disease Diagnostic & Climate-Smart Advisory
               </h1>
-              <p className="text-xs font-mono text-amber-400 mt-1">
+              <p className="text-xs font-mono text-amber-800 font-semibold mt-1">
                 Final project for the Building AI course
               </p>
             </div>
 
             <section className="space-y-2">
-              <h2 className="text-xl font-bold text-white font-['Space_Grotesk'] border-b border-stone-800/80 pb-1">
+              <h2 className="text-xl font-bold text-slate-900 font-['Space_Grotesk'] border-b border-slate-200 pb-1">
                 Summary
               </h2>
-              <p className="bg-emerald-950/30 p-3 rounded-xl border border-emerald-800/30 text-emerald-200 text-xs sm:text-sm font-medium">
+              <p className="bg-emerald-50 p-3.5 rounded-xl border border-emerald-200 text-emerald-950 text-xs sm:text-sm font-medium leading-relaxed">
                 CropGuard AI is an accessible, offline-capable crop health diagnostic and drought-risk advisory system empowering smallholder farmers to detect crop diseases from leaf photos early and adopt climate-resilient farming techniques. (Building AI course project)
               </p>
+              <div className="my-3 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
+                <img 
+                  src="/leaf2.png" 
+                  alt="CropGuard AI Course Project Overview" 
+                  className="w-full h-auto object-contain"
+                  referrerPolicy="no-referrer" 
+                />
+              </div>
             </section>
 
             <section className="space-y-2">
-              <h2 className="text-xl font-bold text-white font-['Space_Grotesk'] border-b border-stone-800/80 pb-1">
+              <h2 className="text-xl font-bold text-slate-900 font-['Space_Grotesk'] border-b border-slate-200 pb-1">
                 Background
               </h2>
-              <p className="text-xs sm:text-sm text-stone-300">
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 Agriculture forms the backbone of livelihood and food security for over 60% of Sub-Saharan Africa and arid/semi-arid regions worldwide. However, smallholder farmers lose up to 40% of their harvests annually to preventable plant pathogens, pests, and sudden climatic shifts.
               </p>
-              <ul className="list-disc list-inside space-y-1 text-xs text-stone-300 pl-2">
+              <ul className="list-disc list-inside space-y-1 text-xs text-slate-700 pl-2">
                 <li><strong>Severe shortage of agricultural extension officers</strong>: In rural districts, the ratio is often 1 officer per 3,000+ farmers.</li>
                 <li><strong>Delayed disease identification</strong>: Fungal blights and viral vectors spread rapidly across fields before diagnosis.</li>
                 <li><strong>Misuse of chemical treatments</strong>: Purchasing inappropriate chemicals damages soil microbiomes and incurs debt.</li>
@@ -346,13 +388,13 @@ export const CourseReadmeSubmissionModal: React.FC = () => {
             </section>
 
             <section className="space-y-2">
-              <h2 className="text-xl font-bold text-white font-['Space_Grotesk'] border-b border-stone-800/80 pb-1">
+              <h2 className="text-xl font-bold text-slate-900 font-['Space_Grotesk'] border-b border-slate-200 pb-1">
                 How is it used?
               </h2>
-              <p className="text-xs sm:text-sm text-stone-300">
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 Designed for frontline use in rural and peri-urban fields under variable connectivity conditions:
               </p>
-              <ol className="list-decimal list-inside space-y-1 text-xs text-stone-300 pl-2">
+              <ol className="list-decimal list-inside space-y-1 text-xs text-slate-700 pl-2">
                 <li><strong>Leaf Symptom Capture</strong>: Mobile photo upload or symptom selection.</li>
                 <li><strong>Instant Neural Diagnosis</strong>: MobileNet vision model returns top disease and confidence score.</li>
                 <li><strong>Microclimate Blight Risk Scoring</strong>: Weather inputs feed Bayesian outbreak risk calculations.</li>
@@ -361,33 +403,33 @@ export const CourseReadmeSubmissionModal: React.FC = () => {
             </section>
 
             <section className="space-y-2">
-              <h2 className="text-xl font-bold text-white font-['Space_Grotesk'] border-b border-stone-800/80 pb-1">
+              <h2 className="text-xl font-bold text-slate-900 font-['Space_Grotesk'] border-b border-slate-200 pb-1">
                 Data sources and AI methods
               </h2>
               <div className="overflow-x-auto">
-                <table className="w-full text-xs text-left text-stone-300 border border-stone-800 rounded-lg">
-                  <thead className="bg-stone-900 text-white font-semibold">
+                <table className="w-full text-xs text-left text-slate-700 border border-slate-200 rounded-lg">
+                  <thead className="bg-slate-100 text-slate-900 font-semibold">
                     <tr>
-                      <th className="p-2 border-b border-stone-800">Source</th>
-                      <th className="p-2 border-b border-stone-800">Type</th>
-                      <th className="p-2 border-b border-stone-800">Description</th>
+                      <th className="p-2.5 border-b border-slate-200">Source</th>
+                      <th className="p-2.5 border-b border-slate-200">Type</th>
+                      <th className="p-2.5 border-b border-slate-200">Description</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-stone-800">
+                  <tbody className="divide-y divide-slate-200">
                     <tr>
-                      <td className="p-2 font-medium text-white">PlantVillage</td>
-                      <td className="p-2">Image Library</td>
-                      <td className="p-2">54,000+ leaf images across 38 crop-disease pairs.</td>
+                      <td className="p-2.5 font-semibold text-slate-900">PlantVillage</td>
+                      <td className="p-2.5">Image Library</td>
+                      <td className="p-2.5">54,000+ leaf images across 38 crop-disease pairs.</td>
                     </tr>
                     <tr>
-                      <td className="p-2 font-medium text-white">CGIAR & FAO</td>
-                      <td className="p-2">Surveys</td>
-                      <td className="p-2">East African field surveys of pathogen frequencies.</td>
+                      <td className="p-2.5 font-semibold text-slate-900">CGIAR & FAO</td>
+                      <td className="p-2.5">Surveys</td>
+                      <td className="p-2.5">East African field surveys of pathogen frequencies.</td>
                     </tr>
                     <tr>
-                      <td className="p-2 font-medium text-white">Open-Meteo & NASA</td>
-                      <td className="p-2">Agroclimatic API</td>
-                      <td className="p-2">Surface temp, precipitation anomalies, soil moisture.</td>
+                      <td className="p-2.5 font-semibold text-slate-900">Open-Meteo & NASA</td>
+                      <td className="p-2.5">Agroclimatic API</td>
+                      <td className="p-2.5">Surface temp, precipitation anomalies, soil moisture.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -395,10 +437,10 @@ export const CourseReadmeSubmissionModal: React.FC = () => {
             </section>
 
             <section className="space-y-2">
-              <h2 className="text-xl font-bold text-white font-['Space_Grotesk'] border-b border-stone-800/80 pb-1">
+              <h2 className="text-xl font-bold text-slate-900 font-['Space_Grotesk'] border-b border-slate-200 pb-1">
                 Challenges
               </h2>
-              <ul className="list-disc list-inside space-y-1 text-xs text-stone-300 pl-2">
+              <ul className="list-disc list-inside space-y-1 text-xs text-slate-700 pl-2">
                 <li>Nutrient deficiencies can mimic viral stunt; physical soil testing remains essential.</li>
                 <li>Low-end phone cameras in bright sun or shadows require robust data augmentation.</li>
                 <li>Offline edge caching (ONNX/TFLite) is required for remote farms without cell data.</li>
@@ -406,19 +448,27 @@ export const CourseReadmeSubmissionModal: React.FC = () => {
             </section>
 
             <section className="space-y-2">
-              <h2 className="text-xl font-bold text-white font-['Space_Grotesk'] border-b border-stone-800/80 pb-1">
+              <h2 className="text-xl font-bold text-slate-900 font-['Space_Grotesk'] border-b border-slate-200 pb-1">
                 What next?
               </h2>
-              <p className="text-xs sm:text-sm text-stone-300">
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 Acoustic pest sensing (locust frequency), native voice interfaces in Somali and Swahili, and automated SMS cooperative alerts to nearby farms upon confirmed blight outbreaks.
               </p>
             </section>
 
             <section className="space-y-2">
-              <h2 className="text-xl font-bold text-white font-['Space_Grotesk'] border-b border-stone-800/80 pb-1">
+              <h2 className="text-xl font-bold text-slate-900 font-['Space_Grotesk'] border-b border-slate-200 pb-1">
                 Acknowledgments
               </h2>
-              <ul className="list-disc list-inside space-y-1 text-xs text-stone-300 pl-2">
+              <div className="my-3 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
+                <img 
+                  src="/leaf3.png" 
+                  alt="Course Acknowledgments and Maintainer" 
+                  className="w-full h-auto object-contain"
+                  referrerPolicy="no-referrer" 
+                />
+              </div>
+              <ul className="list-disc list-inside space-y-1 text-xs text-slate-700 pl-2">
                 <li>University of Helsinki & Reaktor (Building AI course team)</li>
                 <li>PlantVillage Project (Penn State University)</li>
                 <li>CGIAR & FAO Agricultural Data initiatives</li>

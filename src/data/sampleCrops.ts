@@ -33,7 +33,16 @@ export const SAMPLE_CROPS: CropDisease[] = [
       tempRange: '18°C - 27°C',
       humidityRange: '> 80% Relative Humidity',
       riskTrigger: 'Extended dew periods exceeding 6 consecutive hours'
-    }
+    },
+    eppoCode: 'SETUT',
+    faoPestCode: 'FAO-PLH-1049',
+    accessionId: 'PV-MAI-2024-0891',
+    economicThreshold: '1 lesion per 3 canopy leaves prior to tasseling stage (VT)',
+    activeIngredients: [
+      'Azoxystrobin 250 SC (0.5 L/ha)',
+      'Pyraclostrobin + Epoxiconazole (0.75 L/ha)',
+      'Bacillus subtilis strain QST 713 (2.5 kg/ha)'
+    ]
   },
   {
     id: 'tomato-eb',
@@ -67,7 +76,16 @@ export const SAMPLE_CROPS: CropDisease[] = [
       tempRange: '24°C - 29°C',
       humidityRange: '> 75% Relative Humidity',
       riskTrigger: 'Frequent warm rainfall followed by hot humid afternoons'
-    }
+    },
+    eppoCode: 'ALTESO',
+    faoPestCode: 'FAO-PLH-0412',
+    accessionId: 'PV-TOM-2024-1140',
+    economicThreshold: '5% foliar leaf surface necrosis on mid-canopy leaves',
+    activeIngredients: [
+      'Copper Hydroxide 77% WP (2.0 kg/ha)',
+      'Mancozeb 80% WP (2.5 kg/ha)',
+      'Difenoconazole 250 EC (0.4 L/ha)'
+    ]
   },
   {
     id: 'cassava-cmd',
@@ -101,7 +119,16 @@ export const SAMPLE_CROPS: CropDisease[] = [
       tempRange: '26°C - 34°C',
       humidityRange: '50% - 85% Relative Humidity',
       riskTrigger: 'High whitefly vector multiplication during early rainy season'
-    }
+    },
+    eppoCode: 'ACMV00',
+    faoPestCode: 'FAO-PLH-2108',
+    accessionId: 'PV-CAS-2024-0322',
+    economicThreshold: 'Zero tolerance in propagation nurseries; 2% in commercial field stands',
+    activeIngredients: [
+      'Vector suppression: Flupyradifurone (Sivanto Prime) 200 SL',
+      'Spirotetramat 100 SC (0.5 L/ha)',
+      'Cold-pressed Azadirachtin botanical extract (3.0 L/ha)'
+    ]
   },
   {
     id: 'potato-lb',
@@ -135,7 +162,16 @@ export const SAMPLE_CROPS: CropDisease[] = [
       tempRange: '10°C - 20°C',
       humidityRange: '> 90% Relative Humidity',
       riskTrigger: 'Continuous leaf wetness for 10+ hours under cool overcast skies'
-    }
+    },
+    eppoCode: 'PHYTIN',
+    faoPestCode: 'FAO-PLH-0018',
+    accessionId: 'PV-POT-2024-0098',
+    economicThreshold: 'First observable lesion in region triggers preventative perimeter spray',
+    activeIngredients: [
+      'Mandipropamid 250 SC (0.6 L/ha)',
+      'Cymoxanil + Mancozeb (2.5 kg/ha)',
+      'Fluopicolide + Propamocarb (1.5 L/ha)'
+    ]
   },
   {
     id: 'healthy-maize',
@@ -167,7 +203,12 @@ export const SAMPLE_CROPS: CropDisease[] = [
       tempRange: '20°C - 30°C',
       humidityRange: '50% - 70% Relative Humidity',
       riskTrigger: 'Optimal vegetative growth parameters'
-    }
+    },
+    eppoCode: 'ZEAMX-NORM',
+    faoPestCode: 'FAO-CROP-0012',
+    accessionId: 'PV-MAI-2024-0001',
+    economicThreshold: 'Baseline vegetative benchmark',
+    activeIngredients: []
   },
   {
     id: 'banana-sigatoka',
@@ -199,6 +240,15 @@ export const SAMPLE_CROPS: CropDisease[] = [
       tempRange: '25°C - 29°C',
       humidityRange: '> 85% Relative Humidity',
       riskTrigger: 'Frequent rain showers with standing water in banana mats'
-    }
+    },
+    eppoCode: 'MYCOFI',
+    faoPestCode: 'FAO-PLH-0883',
+    accessionId: 'PV-BAN-2024-0552',
+    economicThreshold: 'Youngest leaf spotted (YLS) index below leaf position 8 at flowering',
+    activeIngredients: [
+      'Trifloxystrobin 50 WG (0.25 kg/ha)',
+      'Propiconazole 250 EC (0.4 L/ha)',
+      'Horticultural Mineral Oil emulsion (10 L/ha)'
+    ]
   }
 ];
